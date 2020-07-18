@@ -14,10 +14,12 @@ personaController.getPersonas = async (req, res) => {
 
 // const query = 'SELECT * FROM persona WHERE id = ?';
 const query = 'SELECT * FROM persona';
-const tasks = await client.execute(query, {prepare:true});
+console.log(query);
+
+const personas = await client.execute(query, {prepare:true});
 // const tasks = await personaMapper.get({id: 2});
-console.log(tasks.rows);
-res.json(tasks.rows)
+console.log(personas.rows);
+res.json(personas.rows)
 };
 
 personaController.getPersonaByID = async (req, res) => {
@@ -32,6 +34,7 @@ personaController.postPersona = async (req, res) => {
     const { id, nombre } = req.body;
     const persona = {id, nombre};
     const query = `insert into persona (id, nombre) values (${persona.id}, '${persona.nombre}')`;
+    console.log(query);
     await client.execute(query);
     res.json({status: 'Persona saved'});
 };

@@ -13,6 +13,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 //Routes
 app.use('/api/personas', require('./routes/persona.routes'));
+app.use('/api/tasks', require('./routes/task.routes'));
 //Static files
 // console.log(__dirname + '/public');
 //el path.join hace que no tengamos problemas con / o \ para la ruta sea 

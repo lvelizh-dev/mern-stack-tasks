@@ -7,5 +7,5 @@ router.get('/:id', personaController.getPersonaByID);
 router.post('/', personaController.postPersona);
 router.put('/:id', personaController.putPersona);
 router.delete('/:id', personaController.deletePersona);
-
+ 
 module.exports = router;
